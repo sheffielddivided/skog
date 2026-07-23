@@ -1,0 +1,114 @@
+[
+  {
+    "id": "NOR",
+    "iso2": "NO",
+    "name": "Norway",
+    "nameNo": "Norge",
+    "region": "Nordics"
+  },
+  {
+    "id": "SWE",
+    "iso2": "SE",
+    "name": "Sweden",
+    "nameNo": "Sverige",
+    "region": "Nordics"
+  },
+  {
+    "id": "FIN",
+    "iso2": "FI",
+    "name": "Finland",
+    "nameNo": "Finland",
+    "region": "Nordics"
+  },
+  {
+    "id": "DNK",
+    "iso2": "DK",
+    "name": "Denmark",
+    "nameNo": "Danmark",
+    "region": "Nordics"
+  },
+  {
+    "id": "DEU",
+    "iso2": "DE",
+    "name": "Germany",
+    "nameNo": "Tyskland",
+    "region": "Central Europe"
+  },
+  {
+    "id": "FRA",
+    "iso2": "FR",
+    "name": "France",
+    "nameNo": "Frankrike",
+    "region": "Western Europe"
+  },
+  {
+    "id": "POL",
+    "iso2": "PL",
+    "name": "Poland",
+    "nameNo": "Polen",
+    "region": "Eastern Europe"
+  },
+  {
+    "id": "AUT",
+    "iso2": "AT",
+    "name": "Austria",
+    "nameNo": "Østerrike",
+    "region": "Central Europe"
+  },
+  {
+    "id": "GBR",
+    "iso2": "GB",
+    "name": "United Kingdom",
+    "nameNo": "Storbritannia",
+    "region": "Western Europe"
+  },
+  {
+    "id": "ESP",
+    "iso2": "ES",
+    "name": "Spain",
+    "nameNo": "Spania",
+    "region": "Southern Europe"
+  },
+  {
+    "id": "ITA",
+    "iso2": "IT",
+    "name": "Italy",
+    "nameNo": "Italia",
+    "region": "Southern Europe"
+  },
+  {
+    "id": "CHE",
+    "iso2": "CH",
+    "name": "Switzerland",
+    "nameNo": "Sveits",
+    "region": "Central Europe"
+  },
+  {
+    "id": "EST",
+    "iso2": "EE",
+    "name": "Estonia",
+    "nameNo": "Estland",
+    "region": "Eastern Europe"
+  },
+  {
+    "id": "LVA",
+    "iso2": "LV",
+    "name": "Latvia",
+    "nameNo": "Latvia",
+    "region": "Eastern Europe"
+  },
+  {
+    "id": "ROU",
+    "iso2": "RO",
+    "name": "Romania",
+    "nameNo": "Romania",
+    "region": "Eastern Europe"
+  },
+  {
+    "id": "GLB",
+    "iso2": "XX",
+    "name": "World",
+    "nameNo": "Verden",
+    "region": "Global"
+  }
+]

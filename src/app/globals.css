@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Story-typografi: seriff-overskrifter i FT/OWID-ånd. */
+.headline {
+  @apply font-serif font-semibold tracking-tight text-ink;
+}
+
+.prose-story {
+  @apply text-[1.075rem] leading-8 text-ink-soft;
+}
+.prose-story p {
+  @apply mb-5;
+}
+.prose-story a {
+  @apply text-forest-700 underline underline-offset-2 decoration-forest-300 hover:decoration-forest-600;
+}
+
+/* Fokus-synlighet for tastaturnavigasjon (tilgjengelighet). */
+:where(a, button, [tabindex], input, select, summary):focus-visible {
+  outline: 2px solid theme("colors.forest.500");
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Observable Plot: la figurene arve typografi og fylle bredden. */
+.plot-host figure {
+  margin: 0;
+}
+.plot-host svg {
+  max-width: 100%;
+  height: auto;
+  font-family: theme("fontFamily.sans");
+}
+.plot-host [aria-label="tip"] text,
+.plot-host [aria-label="tip"] {
+  font-family: theme("fontFamily.sans");
+}
+
+/* Skjult, men lesbart for skjermlesere. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

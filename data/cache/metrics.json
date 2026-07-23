@@ -1,0 +1,72 @@
+[
+  {
+    "id": "standing_volume",
+    "name": "Standing volume",
+    "nameNo": "Stående volum",
+    "unit": "mill. m³",
+    "definitionNo": "Samlet volum av levende trær med bark i skog, målt av Landsskogtakseringen.",
+    "uncertaintyNo": "Basert på utvalgstakst i rullerende femårssykluser. Årlige verdier mellom takstår er interpolert.",
+    "direction": "up-good",
+    "sourceId": "ssb"
+  },
+  {
+    "id": "annual_increment",
+    "name": "Annual increment",
+    "nameNo": "Årlig tilvekst",
+    "unit": "mill. m³/år",
+    "definitionNo": "Brutto årlig volumtilvekst på levende trær før avvirkning og naturlig avgang.",
+    "uncertaintyNo": "Modellert fra takstdata; enkeltår kan variere med klima og takstmetodikk.",
+    "direction": "up-good",
+    "sourceId": "ssb"
+  },
+  {
+    "id": "harvest",
+    "name": "Harvest / fellings",
+    "nameNo": "Avvirkning",
+    "unit": "mill. m³/år",
+    "definitionNo": "Total avvirkning av industrivirke og ved (bruttovolum, alle sortiment).",
+    "uncertaintyNo": "Salgsvirke rapporteres presist; ved til eget bruk er anslått.",
+    "direction": "neutral",
+    "sourceId": "ssb"
+  },
+  {
+    "id": "carbon_stock",
+    "name": "Carbon stock in living biomass",
+    "nameNo": "Karbonlager i levende biomasse",
+    "unit": "mill. tonn CO₂-ekv.",
+    "definitionNo": "Karbon bundet i levende trebiomasse (over og under bakken), uttrykt som CO₂-ekvivalenter.",
+    "uncertaintyNo": "Beregnet fra volum med biomasse- og karbonfaktorer; jord- og dødvedkarbon er ikke inkludert.",
+    "direction": "up-good",
+    "sourceId": "nibio"
+  },
+  {
+    "id": "biomass_per_ha",
+    "name": "Above-ground biomass per hectare",
+    "nameNo": "Biomasse per hektar",
+    "unit": "tonn/ha",
+    "definitionNo": "Overjordisk levende biomasse per hektar skog (FAO-definisjon).",
+    "uncertaintyNo": "FRA rapporterer for utvalgte år; verdier mellom år er interpolert.",
+    "direction": "up-good",
+    "sourceId": "fao-fra"
+  },
+  {
+    "id": "forest_area",
+    "name": "Forest area",
+    "nameNo": "Skogareal",
+    "unit": "1000 ha",
+    "definitionNo": "Areal klassifisert som skog etter FAO-definisjonen (>0,5 ha, >10 % kronedekning, trær >5 m).",
+    "uncertaintyNo": "Landdefinisjoner og kartleggingsmetoder varierer noe mellom land og år.",
+    "direction": "up-good",
+    "sourceId": "fao-fra"
+  },
+  {
+    "id": "co2_atmospheric",
+    "name": "Atmospheric CO₂",
+    "nameNo": "Atmosfærisk CO₂",
+    "unit": "ppm",
+    "definitionNo": "Global gjennomsnittlig atmosfærisk CO₂-konsentrasjon (tørr molfraksjon).",
+    "uncertaintyNo": "Svært presise målinger; global middelverdi utjevner sesongvariasjon.",
+    "direction": "down-good",
+    "sourceId": "gcp"
+  }
+]

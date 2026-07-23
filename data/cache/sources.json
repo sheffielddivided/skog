@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ssb",
+    "name": "Statistisk sentralbyrå – Landsskogtakseringen (NIBIO)",
+    "shortName": "SSB / NIBIO",
+    "url": "https://www.ssb.no/statbank/table/03895",
+    "retrieved": "2026-07-23",
+    "license": "CC BY 4.0 (Norge digitalt / SSB åpne data)"
+  },
+  {
+    "id": "nibio",
+    "name": "NIBIO – Landsskogtakseringen",
+    "shortName": "NIBIO",
+    "url": "https://www.nibio.no/tema/skog/landsskogtakseringen",
+    "retrieved": "2026-07-23",
+    "license": "CC BY 4.0"
+  },
+  {
+    "id": "fao-fra",
+    "name": "FAO – Global Forest Resources Assessment (FRA 2020)",
+    "shortName": "FAO FRA",
+    "url": "https://fra-data.fao.org",
+    "retrieved": "2026-07-23",
+    "license": "CC BY-NC-SA 3.0 IGO"
+  },
+  {
+    "id": "gcp",
+    "name": "Global Carbon Project / NOAA Global Monitoring Laboratory",
+    "shortName": "Global Carbon Project",
+    "url": "https://globalcarbonproject.org",
+    "retrieved": "2026-07-23",
+    "license": "CC BY 4.0"
+  },
+  {
+    "id": "copernicus",
+    "name": "Copernicus Climate Change Service (C3S)",
+    "shortName": "Copernicus",
+    "url": "https://climate.copernicus.eu",
+    "retrieved": "2026-07-23",
+    "license": "Copernicus licence (fri gjenbruk med kildehenvisning)"
+  }
+]

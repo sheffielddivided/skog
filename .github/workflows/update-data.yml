@@ -1,0 +1,46 @@
+name: Oppdater skogdata
+
+# Nattlig import: henter ferske tall fra SSB/FAO/GCP, bygger hurtigbufferet
+# på nytt og committer endringer. Push trigger automatisk deploy på Vercel.
+on:
+  schedule:
+    - cron: "0 3 * * *" # hver natt 03:00 UTC
+  workflow_dispatch: {} # kan også kjøres manuelt
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # 1) Hent ferske data  2) valider  3) generer JSON-hurtigbuffer
+      - name: Import og bygg hurtigbuffer
+        run: npm run data:refresh
+
+      - name: Bygg Europakart-GeoJSON
+        run: npm run data:geo
+
+      - name: Kjør tester
+        run: npm test
+
+      - name: Commit oppdaterte data
+        run: |
+          git config user.name "skog-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/cache
+          if git diff --staged --quiet; then
+            echo "Ingen dataendringer."
+          else
+            git commit -m "chore(data): nattlig oppdatering av skogdata"
+            git push
+          fi

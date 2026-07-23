@@ -1,0 +1,451 @@
+{
+  "meta": {
+    "generatedAt": "2026-07-23T22:50:03.113Z",
+    "method": "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
+    "seriesCount": 63,
+    "observationCount": 2261
+  },
+  "index": [
+    {
+      "countryId": "NOR",
+      "metricId": "standing_volume",
+      "minYear": 1925,
+      "maxYear": 2024,
+      "count": 100
+    },
+    {
+      "countryId": "NOR",
+      "metricId": "annual_increment",
+      "minYear": 1930,
+      "maxYear": 2024,
+      "count": 95
+    },
+    {
+      "countryId": "NOR",
+      "metricId": "harvest",
+      "minYear": 1930,
+      "maxYear": 2024,
+      "count": 95
+    },
+    {
+      "countryId": "NOR",
+      "metricId": "carbon_stock",
+      "minYear": 1925,
+      "maxYear": 2024,
+      "count": 100
+    },
+    {
+      "countryId": "NOR",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2024,
+      "count": 35
+    },
+    {
+      "countryId": "NOR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2024,
+      "count": 35
+    },
+    {
+      "countryId": "GLB",
+      "metricId": "co2_atmospheric",
+      "minYear": 1960,
+      "maxYear": 2024,
+      "count": 65
+    },
+    {
+      "countryId": "SWE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FIN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DNK",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DEU",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FRA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "POL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "AUT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "GBR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ESP",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ITA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "CHE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "EST",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "LVA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ROU",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "SWE",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FIN",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DNK",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DEU",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FRA",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "POL",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "AUT",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "GBR",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ESP",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ITA",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "CHE",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "EST",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "LVA",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ROU",
+      "metricId": "standing_volume",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "SWE",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FIN",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DNK",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DEU",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FRA",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "POL",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "AUT",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "GBR",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ESP",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ITA",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "CHE",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "EST",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "LVA",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ROU",
+      "metricId": "biomass_per_ha",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "SWE",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FIN",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DNK",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "DEU",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "FRA",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "POL",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "AUT",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "GBR",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ESP",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ITA",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "CHE",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "EST",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "LVA",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    },
+    {
+      "countryId": "ROU",
+      "metricId": "carbon_stock",
+      "minYear": 1990,
+      "maxYear": 2020,
+      "count": 31
+    }
+  ]
+}
