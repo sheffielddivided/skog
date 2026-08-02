@@ -34,11 +34,17 @@ async function login(): Promise<string | null> {
   if (!res.ok) throw new Error(`auth HTTP ${res.status}`);
 
   const json = (await res.json()) as Record<string, unknown>;
+  // FAOSTAT bruker AWS Cognito: token ligger i AuthenticationResult.AccessToken.
+  const auth = json.AuthenticationResult as Record<string, unknown> | undefined;
   const token =
-    (json.access_token as string) ?? (json.token as string) ?? (json.accessToken as string);
+    (auth?.AccessToken as string) ??
+    (auth?.IdToken as string) ??
+    (json.access_token as string) ??
+    (json.token as string);
   if (!token) {
     // Logg kun NØKLENE (ikke verdier) for å finne riktig token-felt.
-    throw new Error(`fant ikke token-felt (nøkler: ${Object.keys(json).join(", ")})`);
+    const keys = auth ? Object.keys(auth).join(", ") : Object.keys(json).join(", ");
+    throw new Error(`fant ikke token-felt (nøkler: ${keys})`);
   }
   console.log("  · FAOSTAT: innlogget OK.");
   return token;
