@@ -117,6 +117,7 @@ DataSource  { id, name, url, retrieved, license }
 | -------------------------------------- | ------------------------------------------ | ------------------- |
 | **SSB / NIBIO** (Landsskogtakseringen) | Norge: volum, tilvekst, avvirkning, karbon | CC BY 4.0           |
 | **Verdensbanken / FAO** (AG.LND.FRST.K2) | **Globalt skogareal** (alle land, årlig)  | CC BY 4.0           |
+| **FAOSTAT** (Emissions from Forests, GF) | **Netto CO₂ fra skog** (globalt, årlig, autentisert API) | CC BY 4.0 |
 | **FAO FRA 2020**                       | Europa: volum, biomasse, karbon            | CC BY-NC-SA 3.0 IGO |
 | **NOAA / Global Carbon Project**       | Atmosfærisk CO₂ (globalt, årlig)          | CC BY 4.0           |
 | **Copernicus** (valgfritt)             | Europeisk temperatur                       | Copernicus-lisens   |
@@ -139,10 +140,13 @@ verdensdel og norske navn hentes offline fra `world-countries` +
   fra Verdensbankens åpne API (`AG.LND.FRST.K2`, FAO-avledet) av den nattlige
   importtjenesten. Seed-laget (`data/seed/world.ts`) gir samme indikator offline.
 - **Atmosfærisk CO₂** hentes globalt fra NOAA/GCP (47 år).
-- **Volum, biomasse per hektar og karbon** finnes bare i FAO FRA, som ikke har et
-  åpent API (FAOSTATs API krever nå autentisering – bekreftet HTTP 401 i CI). Disse
-  er derfor seedet for Norge + Europa og kan utvides globalt ved å koble på en
-  autentisert FRA/FAOSTAT-kilde i `scripts/import/`.
+- **Netto CO₂ fra skog** hentes globalt (230 land, 1990–2025) fra FAOSTATs
+  autentiserte API (domenet GF, «Emissions from Forests»). Negative verdier =
+  netto opptak (karbonsluk). Vises på Sammenlikning-siden.
+- **Volum (stående kubikkmasse), biomasse per hektar og karbonlager** finnes bare
+  i FAO FRA. Verifisert mot FAOSTATs autentiserte API: disse indikatorene finnes
+  **ikke** der (FAOSTAT har kun areal og netto-CO₂ for skog). De er derfor seedet
+  for Norge + Europa inntil en maskinlesbar FRA-kilde blir tilgjengelig.
 
 Land uten data for en indikator vises grå på kartet.
 
