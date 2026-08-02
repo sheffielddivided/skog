@@ -19,6 +19,7 @@ import { join } from "node:path";
 
 import { importSsb } from "./ssb";
 import { importWorldBankForestArea } from "./worldbank";
+import { importFaostat } from "./faostat";
 import { importGcp } from "./gcp";
 import { validate } from "./validate";
 import type { LiveSeries } from "./types";
@@ -30,6 +31,7 @@ async function main() {
   const results = await Promise.allSettled([
     importSsb(),
     importWorldBankForestArea(),
+    importFaostat(),
     importGcp(),
   ]);
 

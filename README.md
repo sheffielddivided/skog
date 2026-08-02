@@ -180,6 +180,21 @@ En nattlig jobb (se `.github/workflows/update-data.yml`) gjør:
 
 Kjør lokalt med `npm run data:refresh`.
 
+### Hemmeligheter (FAOSTAT-innlogging)
+
+FAOSTAT krever Bearer-token. Importøren logger inn med brukernavn/passord som
+**kun** leses fra miljøvariabler – aldri fra koden:
+
+- **GitHub Actions** (nattlig import): legg `FAOSTAT_USERNAME` og
+  `FAOSTAT_PASSWORD` inn som **Actions Secrets** (Settings → Secrets and
+  variables → Actions → New repository secret). De krypteres og maskeres i
+  loggen, og injiseres i importsteget via `env:`.
+- **Lokalt** (valgfritt): kopier `.env.example` til `.env.local` (git-ignorert).
+- **Vercel** trenger dem ikke – importøren kjører i CI, ikke ved deploy.
+
+Verken passord eller token logges noen gang. Uten legitimasjon hoppes FAOSTAT
+pent over, og seed brukes.
+
 ## Tilgjengelighet og ytelse
 
 - **WCAG AA**, fargeblindvennlige paletter (Okabe–Ito for serier, sekvensiell

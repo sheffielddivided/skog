@@ -24,7 +24,12 @@ jobs:
       - run: npm ci
 
       # 1) Hent ferske data  2) valider  3) generer JSON-hurtigbuffer
+      # FAOSTAT-legitimasjon injiseres fra krypterte Actions Secrets. Er de ikke
+      # satt, hoppes FAOSTAT pent over. Verdiene maskeres automatisk i loggen.
       - name: Import og bygg hurtigbuffer
+        env:
+          FAOSTAT_USERNAME: ${{ secrets.FAOSTAT_USERNAME }}
+          FAOSTAT_PASSWORD: ${{ secrets.FAOSTAT_PASSWORD }}
         run: npm run data:refresh
 
       - name: Bygg Europakart-GeoJSON
