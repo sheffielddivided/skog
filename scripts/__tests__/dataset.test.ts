@@ -50,3 +50,13 @@ test("kartindikatorene finnes for flere land", () => {
     assert.ok(countries.length >= 5, `${metricId} skal dekke flere land`);
   }
 });
+
+test("landregisteret dekker hele verden", () => {
+  assert.ok(dataset.countries.length >= 200, `forventet >=200 land, fikk ${dataset.countries.length}`);
+});
+
+test("skogareal dekker flere verdensdeler (Brasil, USA, Kongo, Kina, Australia)", () => {
+  for (const iso3 of ["BRA", "USA", "COD", "CHN", "AUS", "RUS"]) {
+    assert.ok(series(iso3, "forest_area"), `mangler skogareal for ${iso3}`);
+  }
+});

@@ -7,7 +7,7 @@ import { useState } from "react";
 const NAV = [
   { href: "/", label: "Forside" },
   { href: "/norge", label: "Norge" },
-  { href: "/europa", label: "Europa" },
+  { href: "/verden", label: "Verden" },
   { href: "/sammenlikning", label: "Sammenlikning" },
   { href: "/forklaringer", label: "Forklaringer" },
   { href: "/kilder", label: "Data & kilder" },

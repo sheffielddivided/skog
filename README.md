@@ -1,7 +1,7 @@
 # Skogens utvikling
 
 En moderne, kildebelagt nettside som visualiserer utviklingen i **skogareal,
-stående volum, biomasse og karbonlager** i Norge og Europa over tid.
+stående volum, biomasse og karbonlager** i Norge og resten av verden over tid.
 
 Designfilosofien ligger nær *Our World in Data*, *Financial Times Visual
 Stories* og *Gapminder*: historiefortelling først, grafene dominerer – ikke et
@@ -32,8 +32,8 @@ dashboard.
 - **Forside** med stor hero-graf og nøkkeltall.
 - **Norge**: stående volum, årlig tilvekst, avvirkning, karbonlager og biomasse
   per hektar, samt en **interaktiv tidslinje** over hundre års skoghistorie.
-- **Europa**: interaktivt choropleth-**kart** – velg indikator, klikk et land og
-  åpne tidsserien.
+- **Verden**: interaktivt choropleth-**verdenskart** – velg indikator, filtrer på
+  verdensdel, klikk et land og åpne tidsserien (173 land, alle verdensdeler).
 - **Sammenlikning**: flere land i samme graf, med **delbar permalenke**.
 - **Forklaringer**: en ren tekstside med utvidbare «Explain»-moduler.
 - **Data & kilder**: definisjoner, usikkerheter, datamodell og API-dokumentasjon.
@@ -130,6 +130,13 @@ femårssykluser, og FRA rapporterer for referanseår (1990/2000/2010/2020) –
 Importtjenesten (`scripts/import/`) henter de ekte, ferske seriene når den
 kjører i et miljø med utgående nett (Vercel/CI) og overstyrer seed-laget.
 
+**Global dekning:** Landregisteret dekker alle land (koder, verdensdel og norske
+navn hentes offline fra `world-countries` + `i18n-iso-countries`). I seed-laget
+er **skogareal** lagt inn for verdens største skogland på alle kontinenter
+(`data/seed/world.ts`); de øvrige indikatorene (volum, biomasse, karbon) er
+foreløpig seedet for Europa og fylles globalt av den nattlige FAO-importen, som
+allerede nøkler på ISO-3 uten landfilter. Land uten data vises grå på kartet.
+
 ## Internt API
 
 ```
@@ -186,12 +193,12 @@ returnerer `LiveSeries[]`, og registrer den i `scripts/import/index.ts`.
 ## Bevisste avvik fra spesifikasjonen
 
 - **Kart: d3-geo SVG-choropleth i stedet for MapLibre.** Spesifikasjonen foreslår
-  MapLibre + GeoJSON. For et land-choropleth over Europa gir en SVG-basert
-  d3-geo-løsning bedre **tilgjengelighet** (fokuserbare/klikkbare land,
-  skjermleser-etiketter), er **selvforsynt** (ingen eksterne tile-tjenester, som
-  også holder Lighthouse høyt), og passer datagranulariteten (per land, ikke per
-  piksel). GeoJSON genereres offline fra `world-atlas`. MapLibre kan enkelt
-  byttes inn senere ved behov for zoom-/pan-kart.
+  MapLibre + GeoJSON. For et land-choropleth over verden gir en SVG-basert
+  d3-geo-løsning (Natural Earth-projeksjon) bedre **tilgjengelighet**
+  (fokuserbare/klikkbare land, skjermleser-etiketter), er **selvforsynt** (ingen
+  eksterne tile-tjenester, som også holder Lighthouse høyt), og passer
+  datagranulariteten (per land, ikke per piksel). GeoJSON genereres offline fra
+  `world-atlas`. MapLibre kan enkelt byttes inn senere ved behov for zoom-/pan-kart.
 
 ## Videre utvikling
 

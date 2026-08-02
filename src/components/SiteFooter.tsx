@@ -14,7 +14,7 @@ export function SiteFooter() {
             <h2 className="font-serif text-base font-semibold">Skogens utvikling</h2>
             <p className="mt-2 text-sm leading-6 text-ink-muted">
               En åpen kunnskapsportal om skogareal, volum, biomasse og karbon i
-              Norge og Europa – i «Our World in Data»-ånd.
+              Norge og resten av verden – i «Our World in Data»-ånd.
             </p>
           </div>
 
@@ -22,7 +22,7 @@ export function SiteFooter() {
             <h2 className="text-xs font-semibold uppercase tracking-wide text-ink-faint">Sider</h2>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link className="text-ink-soft hover:text-forest-700" href="/norge">Norge</Link></li>
-              <li><Link className="text-ink-soft hover:text-forest-700" href="/europa">Europa</Link></li>
+              <li><Link className="text-ink-soft hover:text-forest-700" href="/verden">Verden</Link></li>
               <li><Link className="text-ink-soft hover:text-forest-700" href="/sammenlikning">Sammenlikning</Link></li>
               <li><Link className="text-ink-soft hover:text-forest-700" href="/forklaringer">Forklaringer</Link></li>
             </ul>

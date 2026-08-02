@@ -5,7 +5,15 @@
  * på uten å endre komponentene: alt er (Country × Metric × year → value).
  */
 
-export type Region = "Nordics" | "Western Europe" | "Central Europe" | "Southern Europe" | "Eastern Europe" | "Global";
+/** Verdensdel. "Global" er reservert for den syntetiske «Verden»-oppføringen. */
+export type Region =
+  | "Africa"
+  | "Americas"
+  | "Asia"
+  | "Europe"
+  | "Oceania"
+  | "Antarctic"
+  | "Global";
 
 export interface Country {
   /** ISO 3166-1 alpha-3, brukt som primærnøkkel. */
@@ -14,7 +22,10 @@ export interface Country {
   iso2: string;
   name: string;
   nameNo: string;
+  /** Verdensdel. */
   region: Region;
+  /** Underregion, f.eks. "Northern Europe" (til gruppering/filtrering). */
+  subregion?: string;
 }
 
 /** Retning som "er bra" for fargelegging/tolkning – rent forklarende. */

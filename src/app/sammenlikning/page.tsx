@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SammenlikningExplorer } from "@/components/SammenlikningExplorer";
 import { getSeriesForMetric, getMetric, getSource, getMeta, getCountries } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
-import type { MetricInfo } from "@/components/EuropaExplorer";
+import type { MetricInfo, CountryInfo } from "@/components/WorldExplorer";
 
 export const metadata: Metadata = {
   title: "Sammenlikning",
@@ -39,7 +39,11 @@ export default function SammenlikningPage() {
     }
   }
 
-  const countries = getCountries().map((c) => ({ id: c.id, nameNo: c.nameNo }));
+  const withData = new Set<string>();
+  for (const id of COMPARE_METRICS) for (const cid of Object.keys(data[id])) withData.add(cid);
+  const countries: CountryInfo[] = getCountries()
+    .filter((c) => withData.has(c.id))
+    .map((c) => ({ id: c.id, nameNo: c.nameNo, region: c.region }));
 
   return (
     <div className="mx-auto max-w-wide px-4 py-12 sm:px-6">

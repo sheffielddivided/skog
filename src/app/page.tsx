@@ -130,9 +130,9 @@ export default function HomePage() {
             body="Stående volum, tilvekst, avvirkning og karbonlager – med en interaktiv tidslinje over hundre års skoghistorie."
           />
           <NavCard
-            href="/europa"
-            title="Europa"
-            body="Klikk deg gjennom et kart over europeisk skog. Velg indikator og land, og åpne tidsserien."
+            href="/verden"
+            title="Verden"
+            body="Klikk deg gjennom et verdenskart over skog. Velg indikator og land, filtrer på verdensdel, og åpne tidsserien."
           />
           <NavCard
             href="/sammenlikning"

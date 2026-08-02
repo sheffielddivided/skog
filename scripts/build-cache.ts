@@ -12,13 +12,16 @@ import { mkdir, writeFile, rm, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { sources } from "../data/seed/sources";
-import { countries } from "../data/seed/countries";
 import { metrics } from "../data/seed/metrics";
 import { norwayAnchors } from "../data/seed/norway";
 import { globalAnchors } from "../data/seed/global";
 import { europeFra } from "../data/seed/europe";
+import { worldForestArea } from "../data/seed/world";
 import { interpolateAnnual, interpolatePoints } from "./lib/interpolate";
+import { buildCountries } from "./lib/countries";
 import type { Series } from "../src/lib/types";
+
+const countries = buildCountries();
 
 const CACHE_DIR = join(process.cwd(), "data", "cache");
 const SERIES_DIR = join(CACHE_DIR, "series");
@@ -44,6 +47,11 @@ function build(): BuiltSeries[] {
       if (countryId === "NOR") continue;
       series.push({ countryId, metricId, points: interpolatePoints(points) });
     }
+  }
+
+  // 4) Verden – skogareal for store skogland utenfor Europa (FRA 2020).
+  for (const [countryId, points] of Object.entries(worldForestArea)) {
+    series.push({ countryId, metricId: "forest_area", points: interpolatePoints(points) });
   }
 
   return series;

@@ -6,11 +6,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const metadata: Metadata = {
   metadataBase: new URL("https://skogens-utvikling.vercel.app"),
   title: {
-    default: "Skogens utvikling – skog, volum, biomasse og karbon i Norge og Europa",
+    default: "Skogens utvikling – skog, volum, biomasse og karbon i Norge og verden",
     template: "%s · Skogens utvikling",
   },
   description:
-    "Interaktiv, kildebelagt visualisering av hvordan skogareal, stående volum, biomasse og karbonlager har utviklet seg i Norge og Europa over tid.",
+    "Interaktiv, kildebelagt visualisering av hvordan skogareal, stående volum, biomasse og karbonlager har utviklet seg i Norge og resten av verden over tid.",
   openGraph: {
     title: "Skogens utvikling",
     description:

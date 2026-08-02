@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { geoConicConformal, geoPath } from "d3-geo";
+import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { scaleQuantize } from "d3-scale";
 import type { FeatureCollection, Feature } from "geojson";
 import { SEQUENTIAL_GREEN } from "@/lib/palette";
@@ -10,11 +10,12 @@ import { fmt } from "@/lib/format";
 type ValueMap = Record<string, { value: number; year: number }>;
 
 /**
- * Interaktivt choropleth-kart over Europa. Hand-rendret med d3-geo som SVG –
+ * Interaktivt choropleth-verdenskart. Hand-rendret med d3-geo som SVG –
  * selvforsynt (ingen tile-tjenester), tastaturnavigerbart og fargeblindvennlig.
- * Klikk (eller Enter/Space) på et land åpner tidsserien.
+ * Klikk (eller Enter/Space) på et land åpner tidsserien. Projeksjonen tilpasses
+ * automatisk til landene som vises (hele verden eller én verdensdel).
  */
-export function EuropeMap({
+export function WorldMap({
   geo,
   values,
   unit,
@@ -30,7 +31,7 @@ export function EuropeMap({
   onSelect: (iso3: string) => void;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(680);
+  const [width, setWidth] = useState(720);
   const [hover, setHover] = useState<{ iso3: string; x: number; y: number } | null>(null);
 
   useEffect(() => {
@@ -41,24 +42,20 @@ export function EuropeMap({
       if (w) setWidth(Math.round(w));
     });
     ro.observe(el);
-    setWidth(Math.round(el.getBoundingClientRect().width || 680));
+    setWidth(Math.round(el.getBoundingClientRect().width || 720));
     return () => ro.disconnect();
   }, []);
 
-  const height = Math.round(width * 0.82);
-
-  const { paths, color, thresholds, domain } = useMemo(() => {
-    const projection = geoConicConformal()
-      .parallels([43, 62])
-      .rotate([-12, 0])
-      .fitExtent(
-        [
-          [12, 12],
-          [width - 12, height - 12],
-        ],
-        geo,
-      );
-    const path = geoPath(projection);
+  const { paths, height, color, thresholds, domain } = useMemo(() => {
+    const projection = geoNaturalEarth1();
+    projection.fitWidth(width, geo);
+    let path = geoPath(projection);
+    const b = path.bounds(geo); // [[x0,y0],[x1,y1]]
+    const h = Math.ceil(b[1][1] - b[0][1]);
+    // Venstre-/topp-juster slik at viewBox blir 0 0 width height.
+    const t = projection.translate();
+    projection.translate([t[0] - b[0][0], t[1] - b[0][1]]);
+    path = geoPath(projection);
 
     const vals = Object.values(values).map((v) => v.value);
     const min = vals.length ? Math.min(...vals) : 0;
@@ -67,15 +64,16 @@ export function EuropeMap({
 
     const paths = geo.features.map((f: Feature) => ({
       iso3: String(f.id),
-      name: (f.properties as { nameNo?: string; name?: string })?.nameNo ??
+      name:
+        (f.properties as { nameNo?: string; name?: string })?.nameNo ??
         (f.properties as { name?: string })?.name ??
         String(f.id),
       d: path(f) ?? "",
       centroid: path.centroid(f),
     }));
 
-    return { paths, color, thresholds: color.thresholds(), domain: [min, max] as [number, number] };
-  }, [geo, values, width, height]);
+    return { paths, height: h, color, thresholds: color.thresholds(), domain: [min, max] as [number, number] };
+  }, [geo, values, width]);
 
   const legendStops = [domain[0], ...thresholds, domain[1]];
 
@@ -87,7 +85,7 @@ export function EuropeMap({
           width="100%"
           height={height}
           role="group"
-          aria-label={`Kart over Europa fargelagt etter ${metricLabel}`}
+          aria-label={`Verdenskart fargelagt etter ${metricLabel}`}
           className="touch-manipulation"
         >
           {paths.map((p) => {
@@ -100,7 +98,7 @@ export function EuropeMap({
                 d={p.d}
                 fill={hasData ? color(v.value) : "#eceae3"}
                 stroke={isSel ? "#c2410c" : "#ffffff"}
-                strokeWidth={isSel ? 2 : 0.6}
+                strokeWidth={isSel ? 1.6 : 0.4}
                 tabIndex={hasData ? 0 : -1}
                 role={hasData ? "button" : undefined}
                 aria-label={
@@ -164,7 +162,7 @@ function Tooltip({
   unit: string;
   width: number;
 }) {
-  const flip = x > width - 160;
+  const flip = x > width - 170;
   return (
     <div
       className="pointer-events-none absolute z-10 rounded-md border border-paper-line bg-paper px-2.5 py-1.5 text-xs shadow-md"
