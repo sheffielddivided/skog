@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-08-02T19:11:46.492Z",
-    "contentHash": "f9b84e161f0fbbfd11be76acc3bdd01c4bd2f6b6",
+    "generatedAt": "2026-08-02T19:13:30.202Z",
+    "contentHash": "a0d42a67a1ce8a0389d330fe44b9629af13ea05e",
     "method": "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
-    "seriesCount": 110,
-    "observationCount": 3718
+    "seriesCount": 261,
+    "observationCount": 8803
   },
   "index": [
     {
@@ -46,113 +46,113 @@
       "countryId": "NOR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2024,
-      "count": 35
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "GLB",
       "metricId": "co2_atmospheric",
-      "minYear": 1960,
-      "maxYear": 2024,
-      "count": 65
+      "minYear": 1979,
+      "maxYear": 2025,
+      "count": 47
     },
     {
       "countryId": "SWE",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "FIN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "DNK",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "DEU",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "FRA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "POL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "AUT",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "GBR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ESP",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ITA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CHE",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "EST",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "LVA",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "ROU",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "SWE",
@@ -452,330 +452,1387 @@
       "countryId": "BRA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CAN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "USA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "PER",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "MEX",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "COL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "BOL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "VEN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ARG",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CHL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "PRY",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "GUY",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "SUR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ECU",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CHN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "IDN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "IND",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "MMR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "JPN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "MYS",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "THA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "KAZ",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "VNM",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "PHL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "IRN",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "KHM",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "LAO",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "PNG",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "COD",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "AGO",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ZMB",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "TZA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "MOZ",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CAF",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "COG",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "GAB",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "CMR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "NGA",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "ETH",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
+      "minYear": 1993,
+      "maxYear": 2023,
       "count": 31
     },
     {
       "countryId": "ZWE",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "MDG",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "RUS",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "TUR",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "UKR",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "BLR",
       "metricId": "forest_area",
-      "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
     },
     {
       "countryId": "AUS",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
-      "count": 31
+      "maxYear": 2023,
+      "count": 34
     },
     {
       "countryId": "NZL",
       "metricId": "forest_area",
       "minYear": 1990,
-      "maxYear": 2020,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "AFG",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ALB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "DZA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ASM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "AND",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ATG",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ARM",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "ABW",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "AZE",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "BHS",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BHR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BGD",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BRB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BEL",
+      "metricId": "forest_area",
+      "minYear": 2000,
+      "maxYear": 2023,
+      "count": 24
+    },
+    {
+      "countryId": "BLZ",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BEN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BMU",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BTN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BIH",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "BWA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "VGB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BRN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BGR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BFA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "BDI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CPV",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CYM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TCD",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "COM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CRI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CIV",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "HRV",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "CUB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CUW",
+      "metricId": "forest_area",
+      "minYear": 2011,
+      "maxYear": 2023,
+      "count": 13
+    },
+    {
+      "countryId": "CYP",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "CZE",
+      "metricId": "forest_area",
+      "minYear": 1993,
+      "maxYear": 2023,
       "count": 31
+    },
+    {
+      "countryId": "DJI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "DMA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "DOM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "EGY",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SLV",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GNQ",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ERI",
+      "metricId": "forest_area",
+      "minYear": 1993,
+      "maxYear": 2023,
+      "count": 31
+    },
+    {
+      "countryId": "SWZ",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "FRO",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "FJI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PYF",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GMB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GEO",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "GHA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GIB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GRC",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GRL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GRD",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GUM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GTM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GIN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "GNB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "HTI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "HND",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "HUN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ISL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "IRQ",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "IRL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "IMN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ISR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "JAM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "JOR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KEN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KIR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PRK",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KOR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KWT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KGZ",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "LBN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LSO",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LBR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LBY",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LIE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LTU",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "LUX",
+      "metricId": "forest_area",
+      "minYear": 2000,
+      "maxYear": 2023,
+      "count": 24
+    },
+    {
+      "countryId": "MWI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MDV",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MLI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MLT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MHL",
+      "metricId": "forest_area",
+      "minYear": 1991,
+      "maxYear": 2023,
+      "count": 33
+    },
+    {
+      "countryId": "MRT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MUS",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "FSM",
+      "metricId": "forest_area",
+      "minYear": 1991,
+      "maxYear": 2023,
+      "count": 33
+    },
+    {
+      "countryId": "MDA",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "MCO",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MNG",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MNE",
+      "metricId": "forest_area",
+      "minYear": 2006,
+      "maxYear": 2023,
+      "count": 18
+    },
+    {
+      "countryId": "MAR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NAM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NRU",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NPL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NLD",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NCL",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NIC",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "NER",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MKD",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "MNP",
+      "metricId": "forest_area",
+      "minYear": 1991,
+      "maxYear": 2023,
+      "count": 33
+    },
+    {
+      "countryId": "OMN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PAK",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PLW",
+      "metricId": "forest_area",
+      "minYear": 1991,
+      "maxYear": 2023,
+      "count": 33
+    },
+    {
+      "countryId": "PAN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PRT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PRI",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "QAT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "RWA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "WSM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SMR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "STP",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SAU",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SEN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SRB",
+      "metricId": "forest_area",
+      "minYear": 2006,
+      "maxYear": 2023,
+      "count": 18
+    },
+    {
+      "countryId": "SYC",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SLE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SGP",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SXM",
+      "metricId": "forest_area",
+      "minYear": 2011,
+      "maxYear": 2023,
+      "count": 13
+    },
+    {
+      "countryId": "SVK",
+      "metricId": "forest_area",
+      "minYear": 1993,
+      "maxYear": 2023,
+      "count": 31
+    },
+    {
+      "countryId": "SVN",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "SLB",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SOM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ZAF",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SSD",
+      "metricId": "forest_area",
+      "minYear": 2012,
+      "maxYear": 2023,
+      "count": 12
+    },
+    {
+      "countryId": "LKA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "KNA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "LCA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "MAF",
+      "metricId": "forest_area",
+      "minYear": 2011,
+      "maxYear": 2023,
+      "count": 13
+    },
+    {
+      "countryId": "VCT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "SDN",
+      "metricId": "forest_area",
+      "minYear": 2012,
+      "maxYear": 2023,
+      "count": 12
+    },
+    {
+      "countryId": "SYR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TJK",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "TLS",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TGO",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TON",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TTO",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TUN",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TKM",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "TCA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TUV",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "UGA",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "ARE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "URY",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "UZB",
+      "metricId": "forest_area",
+      "minYear": 1992,
+      "maxYear": 2023,
+      "count": 32
+    },
+    {
+      "countryId": "VUT",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "VIR",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "PSE",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "YEM",
+      "metricId": "forest_area",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
     }
   ]
 }
