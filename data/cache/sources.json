@@ -40,6 +40,14 @@
     "license": "CC BY 4.0"
   },
   {
+    "id": "faostat",
+    "name": "FAOSTAT – Emissions from Forests (GF)",
+    "shortName": "FAOSTAT",
+    "url": "https://www.fao.org/faostat/en/#data/GF",
+    "retrieved": "2026-08-02",
+    "license": "CC BY 4.0"
+  },
+  {
     "id": "copernicus",
     "name": "Copernicus Climate Change Service (C3S)",
     "shortName": "Copernicus",

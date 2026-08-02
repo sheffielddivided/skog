@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-08-02T19:13:30.202Z",
-    "contentHash": "a0d42a67a1ce8a0389d330fe44b9629af13ea05e",
+    "generatedAt": "2026-08-02T19:54:21.954Z",
+    "contentHash": "cc05a0c6d36f88cbf1c84bd370073fdccaf37234",
     "method": "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
-    "seriesCount": 261,
-    "observationCount": 8803
+    "seriesCount": 453,
+    "observationCount": 15503
   },
   "index": [
     {
@@ -1833,6 +1833,1350 @@
       "minYear": 1990,
       "maxYear": 2023,
       "count": 34
+    },
+    {
+      "countryId": "AFG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ALB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ASM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "AND",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "AGO",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PYF",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ARG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ARM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ABW",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ATA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "AUT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BRB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "DZA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BHR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BLR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BEL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BLZ",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BEN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BMU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BTN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BOL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BES",
+      "metricId": "forest_co2_net",
+      "minYear": 2011,
+      "maxYear": 2025,
+      "count": 15
+    },
+    {
+      "countryId": "BIH",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BRA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SGS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BRN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BGR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "EST",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BDI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KHM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CAN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "AUS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CAF",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TCD",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CHN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BHS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "COM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "COG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "COK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CIV",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "HRV",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CUB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CUW",
+      "metricId": "forest_co2_net",
+      "minYear": 2011,
+      "maxYear": 2025,
+      "count": 15
+    },
+    {
+      "countryId": "BGD",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CZE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FRA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "DNK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BWA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "DMA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ECU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "EGY",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GNQ",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SWZ",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FLK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FJI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FIN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GUF",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "BVT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GMB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GEO",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "DEU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GHA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GIB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GRL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "IOT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GLP",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GUM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GTM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SLB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MYT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GUY",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "HTI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "HND",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "HUN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ISL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "IDN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "IRN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "IRQ",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MMR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "IMN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ISR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ITA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "JAM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "JPN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "JEY",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KEN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KIR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KWT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KGZ",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "CMR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LVA",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "LBN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LSO",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LBR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LIE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LTU",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "LUX",
+      "metricId": "forest_co2_net",
+      "minYear": 2000,
+      "maxYear": 2025,
+      "count": 26
+    },
+    {
+      "countryId": "MDG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MWI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MYS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CPV",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MLI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MLT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MHL",
+      "metricId": "forest_co2_net",
+      "minYear": 1991,
+      "maxYear": 2025,
+      "count": 35
+    },
+    {
+      "countryId": "MTQ",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CYM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MUS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MEX",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FSM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MNG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MNE",
+      "metricId": "forest_co2_net",
+      "minYear": 2006,
+      "maxYear": 2025,
+      "count": 20
+    },
+    {
+      "countryId": "MSR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MAR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LKA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ATG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NAM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NPL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NCL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NIC",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2023,
+      "count": 34
+    },
+    {
+      "countryId": "TWN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NGA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NIU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "NFK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MKD",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "MNP",
+      "metricId": "forest_co2_net",
+      "minYear": 1991,
+      "maxYear": 2025,
+      "count": 35
+    },
+    {
+      "countryId": "CXR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "OMN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PAK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "COD",
+      "metricId": "forest_co2_net",
+      "minYear": 1991,
+      "maxYear": 2025,
+      "count": 35
+    },
+    {
+      "countryId": "PSE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CCK",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PNG",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PRY",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "COL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PHL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PCN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "POL",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "PRI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "QAT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "KOR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MDA",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "REU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ROU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "RUS",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "CRI",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "LCA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "MAF",
+      "metricId": "forest_co2_net",
+      "minYear": 2011,
+      "maxYear": 2025,
+      "count": 15
+    },
+    {
+      "countryId": "SPM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "WSM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "STP",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SAU",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SEN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SRB",
+      "metricId": "forest_co2_net",
+      "minYear": 2006,
+      "maxYear": 2025,
+      "count": 20
+    },
+    {
+      "countryId": "CYP",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SLE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SGP",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SXM",
+      "metricId": "forest_co2_net",
+      "minYear": 2011,
+      "maxYear": 2025,
+      "count": 15
+    },
+    {
+      "countryId": "SVK",
+      "metricId": "forest_co2_net",
+      "minYear": 1993,
+      "maxYear": 2025,
+      "count": 33
+    },
+    {
+      "countryId": "SVN",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "SOM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ZAF",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SSD",
+      "metricId": "forest_co2_net",
+      "minYear": 2012,
+      "maxYear": 2025,
+      "count": 14
+    },
+    {
+      "countryId": "SUR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ATF",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SWE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "CHE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "THA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TLS",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TGO",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TON",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TTO",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "SLV",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TUR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TKM",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "TCA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TUV",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "UKR",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "ARE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "GBR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "TZA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ETH",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "VIR",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "FRO",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "UZB",
+      "metricId": "forest_co2_net",
+      "minYear": 1992,
+      "maxYear": 2025,
+      "count": 34
+    },
+    {
+      "countryId": "VUT",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "VEN",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "VNM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ESH",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "YEM",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ALA",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 1991,
+      "count": 2
+    },
+    {
+      "countryId": "ZMB",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
+    },
+    {
+      "countryId": "ZWE",
+      "metricId": "forest_co2_net",
+      "minYear": 1990,
+      "maxYear": 2025,
+      "count": 36
     }
   ]
 }
