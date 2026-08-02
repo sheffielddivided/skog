@@ -11,7 +11,6 @@
  *   GF, element 7233 (Net emissions/removals CO2), item 6751 (Forestland)
  */
 import { LiveSeries } from "./types";
-import { buildCountries } from "../lib/countries";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -85,49 +84,6 @@ function makeNameLookups() {
   return { byM49, byName };
 }
 
-/**
- * Bygger en autoritativ FAO-områdekode → ISO-3 fra domenets egen kodeliste
- * (codes/areas). Unngår kollisjonen der FAO-koder tolkes som M49.
- */
-async function buildAreaMap(domain: string, token: string, validIds: Set<string>): Promise<Map<string, string>> {
-  const { byM49, byName } = makeNameLookups();
-  const j = await authGet<{ data?: Record<string, unknown>[] }>(
-    `en/codes/areas/${domain}?output_type=objects`,
-    token,
-  );
-  const rows = j.data ?? [];
-  console.log(`  · FAOSTAT areakoder(${domain}): ${rows.length}. Felt: ${Object.keys(rows[0] ?? {}).join(", ")}`);
-
-  const map = new Map<string, string>();
-  let unresolved = 0;
-  for (const r of rows) {
-    const code = String(r["Code"] ?? r["code"] ?? r["Area Code"] ?? "");
-    if (!code) continue;
-    let iso: string | undefined;
-    // 1) eksplisitt ISO3-felt
-    for (const k of Object.keys(r)) {
-      if (/iso3/i.test(k) && /^[A-Za-z]{3}$/.test(String(r[k]))) iso = String(r[k]).toUpperCase();
-    }
-    // 2) M49-felt
-    if (!iso) {
-      for (const k of Object.keys(r)) {
-        if (/m49/i.test(k)) {
-          const m = String(r[k]).replace(/\D/g, "");
-          if (m && byM49.has(String(Number(m)))) iso = byM49.get(String(Number(m)));
-        }
-      }
-    }
-    // 3) navn/alias
-    if (!iso) {
-      const label = r["Label"] ?? r["label"] ?? r["Area"];
-      if (typeof label === "string") iso = byName.get(norm(label));
-    }
-    if (iso && validIds.has(iso)) map.set(code, iso);
-    else unresolved++;
-  }
-  console.log(`  · FAOSTAT areakoder(${domain}): ${map.size} → ISO3 (${unresolved} uten treff)`);
-  return map;
-}
 
 /** Normaliserer en CO₂-verdi til millioner tonn ut fra enhetsteksten. */
 function toMtCO2(value: number, unit: string): number {
@@ -158,7 +114,8 @@ const JOBS: FaoJob[] = [
   },
 ];
 
-async function runJob(job: FaoJob, token: string, areaMap: Map<string, string>): Promise<LiveSeries[]> {
+async function runJob(job: FaoJob, token: string): Promise<LiveSeries[]> {
+  const { byName } = makeNameLookups();
   const data = await authGet<{ data?: Record<string, unknown>[] }>(
     `en/data/${job.domain}?element=${job.element}&item=${job.item}&output_type=objects&show_codes=true&show_unit=true`,
     token,
@@ -168,22 +125,30 @@ async function runJob(job: FaoJob, token: string, areaMap: Map<string, string>):
   console.log(`  · FAOSTAT ${job.label}: ${rows.length} rader. Felt: ${Object.keys(rows[0]).join(", ")}`);
 
   const byCountry = new Map<string, LiveSeries>();
+  const unmatched = new Set<string>();
   let sampleLogged = false;
   for (const r of rows) {
-    const areaCode = String(r["Area Code"] ?? r["Area Code (FAO)"] ?? "");
-    const iso3 = areaMap.get(areaCode);
+    // Løs opp via LANDNAVN (entydig) – ikke numerisk FAO-kode (kolliderer med M49).
+    const name = String(r["Area"] ?? r["AreaName"] ?? "");
+    const iso3 = byName.get(norm(name));
     const year = Number(r["Year"]);
     const raw = Number(r["Value"]);
     const unit = String(r["Unit"] ?? "");
-    if (!iso3 || !Number.isFinite(year) || !Number.isFinite(raw)) continue;
+    if (!iso3) {
+      if (name) unmatched.add(name);
+      continue;
+    }
+    if (!Number.isFinite(year) || !Number.isFinite(raw)) continue;
     const value = Math.round(toMtCO2(raw, unit) * 100) / 100;
     if (!sampleLogged) {
       console.log(`     eksempel: ${iso3} ${year} rå=${raw} ${unit} → ${value} mill. t CO₂`);
       sampleLogged = true;
     }
-    const key = iso3;
-    if (!byCountry.has(key)) byCountry.set(key, { countryId: iso3, metricId: job.metricId, points: [] });
-    byCountry.get(key)!.points.push({ year, value, quality: "measured" });
+    if (!byCountry.has(iso3)) byCountry.set(iso3, { countryId: iso3, metricId: job.metricId, points: [] });
+    byCountry.get(iso3)!.points.push({ year, value, quality: "measured" });
+  }
+  if (unmatched.size) {
+    console.log(`     uten navnetreff (${unmatched.size}): ${[...unmatched].slice(0, 20).join(" | ")}`);
   }
   const out = [...byCountry.values()]
     .map((s) => ({ ...s, points: s.points.sort((a, b) => a.year - b.year) }))
@@ -196,15 +161,10 @@ export async function importFaostat(): Promise<LiveSeries[]> {
   try {
     const token = await login();
     if (!token) return [];
-    const validIds = new Set(buildCountries().map((c) => c.id));
-    const areaMaps = new Map<string, Map<string, string>>();
     const out: LiveSeries[] = [];
     for (const job of JOBS) {
       try {
-        if (!areaMaps.has(job.domain)) {
-          areaMaps.set(job.domain, await buildAreaMap(job.domain, token, validIds));
-        }
-        out.push(...(await runJob(job, token, areaMaps.get(job.domain)!)));
+        out.push(...(await runJob(job, token)));
       } catch (err) {
         console.warn(`  ⚠ FAOSTAT ${job.label} feilet: ${(err as Error).message}`);
       }
