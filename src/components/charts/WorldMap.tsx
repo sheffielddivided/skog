@@ -104,7 +104,12 @@ export function WorldMap({
     }
     path = geoPath(projection);
 
-    const vals = Object.values(values).map((v) => v.value);
+    // Fargeskalaen tilpasses landene som faktisk vises (verdensdel eller hele
+    // verden), slik at kontrasten blir god innen hvert utsnitt.
+    const shownIso = new Set(geo.features.map((f) => String(f.id)));
+    const vals = Object.entries(values)
+      .filter(([iso]) => shownIso.has(iso))
+      .map(([, v]) => v.value);
     const min = vals.length ? Math.min(...vals) : 0;
     const max = vals.length ? Math.max(...vals) : 1;
 
