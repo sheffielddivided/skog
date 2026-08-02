@@ -18,7 +18,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { importSsb } from "./ssb";
-import { importFao } from "./fao";
+import { importFaostat } from "./faostat";
 import { importGcp } from "./gcp";
 import { validate } from "./validate";
 import type { LiveSeries } from "./types";
@@ -27,7 +27,7 @@ const LIVE_DIR = join(process.cwd(), "data", "cache", "live");
 
 async function main() {
   console.log("→ Henter ferske data …");
-  const results = await Promise.allSettled([importSsb(), importFao(), importGcp()]);
+  const results = await Promise.allSettled([importSsb(), importFaostat(), importGcp()]);
 
   const collected: LiveSeries[] = [];
   for (const r of results) {
