@@ -65,3 +65,13 @@ test("skogareal dekker flere verdensdeler (Brasil, USA, Kongo, Kina, Australia)"
     assert.ok(series(iso3, "forest_area"), `mangler skogareal for ${iso3}`);
   }
 });
+
+test("FRA-indikatorene (volum, biomasse, karbon) er globale", () => {
+  for (const metricId of ["standing_volume", "biomass_per_ha", "carbon_stock"]) {
+    const n = dataset.series.filter((s) => s.metricId === metricId && s.countryId !== "GLB").length;
+    assert.ok(n >= 100, `${metricId} skal dekke mange land, fikk ${n}`);
+  }
+  // Norge beholder sin nasjonale volumserie (SSB), ikke FRA.
+  const nor = series("NOR", "standing_volume")!;
+  assert.ok(nor.points[0].year <= 1930, "NOR-volum skal starte på 1920-tallet (SSB)");
+});

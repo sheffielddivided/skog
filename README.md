@@ -143,10 +143,12 @@ verdensdel og norske navn hentes offline fra `world-countries` +
 - **Netto CO₂ fra skog** hentes globalt (230 land, 1990–2025) fra FAOSTATs
   autentiserte API (domenet GF, «Emissions from Forests»). Negative verdier =
   netto opptak (karbonsluk). Vises på Sammenlikning-siden.
-- **Volum (stående kubikkmasse), biomasse per hektar og karbonlager** finnes bare
-  i FAO FRA. Verifisert mot FAOSTATs autentiserte API: disse indikatorene finnes
-  **ikke** der (FAOSTAT har kun areal og netto-CO₂ for skog). De er derfor seedet
-  for Norge + Europa inntil en maskinlesbar FRA-kilde blir tilgjengelig.
+- **Volum (stående kubikkmasse), biomasse per hektar og karbonlager** hentes nå
+  globalt fra **FAO FRA 2025 bulk-nedlastingen** (`data/fra/*.csv` → `data:fra`
+  → `data/seed/fra.json`), for referanseårene 1990–2025. Norge beholder sin lange
+  nasjonale SSB-serie for disse. Karbon er omregnet fra tonn C til CO₂-ekv.
+  (×44/12). FRA-bulken er en manuell nedlasting (ikke et API), så den ligger som
+  et committet seed-lag; kjør `npm run data:fra` når en ny bulk legges inn.
 
 Land uten data for en indikator vises grå på kartet.
 

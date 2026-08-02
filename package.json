@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test scripts/__tests__/*.test.ts",
     "data:build": "tsx scripts/build-cache.ts",
+    "data:fra": "tsx scripts/build-fra-seed.ts",
     "data:geo": "tsx scripts/build-geo.ts",
     "data:import": "tsx scripts/import/index.ts",
     "data:refresh": "tsx scripts/import/index.ts && tsx scripts/build-cache.ts",

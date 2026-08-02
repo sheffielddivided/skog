@@ -16,8 +16,7 @@ import { sources } from "../data/seed/sources";
 import { metrics } from "../data/seed/metrics";
 import { norwayAnchors } from "../data/seed/norway";
 import { globalAnchors } from "../data/seed/global";
-import { europeFra } from "../data/seed/europe";
-import { worldForestArea } from "../data/seed/world";
+import fraSeed from "../data/seed/fra.json";
 import { interpolateAnnual, interpolatePoints } from "./lib/interpolate";
 import { buildCountries } from "./lib/countries";
 import type { Series } from "../src/lib/types";
@@ -30,32 +29,26 @@ const SERIES_DIR = join(CACHE_DIR, "series");
 type BuiltSeries = Pick<Series, "countryId" | "metricId" | "points">;
 
 function build(): BuiltSeries[] {
-  const series: BuiltSeries[] = [];
+  // Bruk et kart slik at senere lag overstyrer tidligere for samme land×indikator.
+  const byKey = new Map<string, BuiltSeries>();
+  const put = (s: BuiltSeries) => byKey.set(`${s.countryId}__${s.metricId}`, s);
 
-  // 1) Norge – lange nasjonale serier fra Landsskogtakseringen.
+  // 1) FAO FRA 2025 (global) – stående volum, biomasse/ha, karbon, skogareal.
+  for (const s of fraSeed as { countryId: string; metricId: string; anchors: Record<number, number> }[]) {
+    put({ countryId: s.countryId, metricId: s.metricId, points: interpolatePoints(s.anchors) });
+  }
+
+  // 2) Norge – lange nasjonale serier fra Landsskogtakseringen (overstyrer FRA for NOR).
   for (const [metricId, anchors] of Object.entries(norwayAnchors)) {
-    series.push({ countryId: "NOR", metricId, points: interpolateAnnual(anchors) });
+    put({ countryId: "NOR", metricId, points: interpolateAnnual(anchors) });
   }
 
-  // 2) Global klimakontekst – atmosfærisk CO₂.
+  // 3) Global klimakontekst – atmosfærisk CO₂.
   for (const [metricId, anchors] of Object.entries(globalAnchors)) {
-    series.push({ countryId: "GLB", metricId, points: interpolateAnnual(anchors) });
+    put({ countryId: "GLB", metricId, points: interpolateAnnual(anchors) });
   }
 
-  // 3) Europa – FRA-referanseår per land (Norge håndteres av #1).
-  for (const [metricId, byCountry] of Object.entries(europeFra)) {
-    for (const [countryId, points] of Object.entries(byCountry)) {
-      if (countryId === "NOR") continue;
-      series.push({ countryId, metricId, points: interpolatePoints(points) });
-    }
-  }
-
-  // 4) Verden – skogareal for store skogland utenfor Europa (FRA 2020).
-  for (const [countryId, points] of Object.entries(worldForestArea)) {
-    series.push({ countryId, metricId: "forest_area", points: interpolatePoints(points) });
-  }
-
-  return series;
+  return [...byKey.values()];
 }
 
 function seriesKey(countryId: string, metricId: string) {

@@ -7,11 +7,11 @@ export const metrics: Metric[] = [
     nameNo: "Stående volum",
     unit: "mill. m³",
     definitionNo:
-      "Samlet volum av levende trær med bark i skog, målt av Landsskogtakseringen.",
+      "Samlet volum av levende trær i skog. Norge: Landsskogtakseringen (SSB/NIBIO, under bark). Øvrige land: FAO FRA 2025 (med bark).",
     uncertaintyNo:
-      "Basert på utvalgstakst i rullerende femårssykluser. Årlige verdier mellom takstår er interpolert.",
+      "Ulike land bruker ulike definisjoner (med/uten bark). Årlige verdier mellom takst-/rapporteringsår er interpolert.",
     direction: "up-good",
-    sourceId: "ssb",
+    sourceId: "fao-fra",
   },
   {
     id: "annual_increment",
@@ -43,11 +43,11 @@ export const metrics: Metric[] = [
     nameNo: "Karbonlager i levende biomasse",
     unit: "mill. tonn CO₂-ekv.",
     definitionNo:
-      "Karbon bundet i levende trebiomasse (over og under bakken), uttrykt som CO₂-ekvivalenter.",
+      "Karbon i levende trebiomasse (over + under bakken), omregnet fra tonn karbon til CO₂-ekvivalenter (×44/12). Kilde: FAO FRA 2025 (Norge: NIBIO). Jord- og dødvedkarbon er ikke inkludert.",
     uncertaintyNo:
-      "Beregnet fra volum med biomasse- og karbonfaktorer; jord- og dødvedkarbon er ikke inkludert.",
+      "Beregnet fra biomasse med karbonfaktorer; metodikk varierer mellom land.",
     direction: "up-good",
-    sourceId: "nibio",
+    sourceId: "fao-fra",
   },
   {
     id: "biomass_per_ha",
