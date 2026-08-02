@@ -39,6 +39,12 @@ function norwegianName(cca3: string, fallback: string): string {
   return isoCountries.getName(cca3, "nb") ?? fallback;
 }
 
+// Verdensdel-overstyringer for transkontinentale land (kart-/gruppering-hensyn).
+// Russlands skog er nesten utelukkende sibirsk, så det hører til Asia-utsnittet.
+const REGION_OVERRIDES: Record<string, Region> = {
+  RUS: "Asia",
+};
+
 /** Fullt register (alle land) + den syntetiske «Verden»-oppføringen. */
 export function buildCountries(): Country[] {
   const list: Country[] = worldCountries
@@ -48,7 +54,8 @@ export function buildCountries(): Country[] {
       iso2: c.cca2,
       name: c.name.common,
       nameNo: norwegianName(c.cca3, c.name.common),
-      region: (VALID_REGIONS.has(c.region as Region) ? c.region : "Africa") as Region,
+      region: (REGION_OVERRIDES[c.cca3] ??
+        (VALID_REGIONS.has(c.region as Region) ? c.region : "Africa")) as Region,
       subregion: c.subregion || undefined,
     }))
     .sort((a, b) => a.nameNo.localeCompare(b.nameNo, "nb"));

@@ -34,6 +34,16 @@ export const SEQUENTIAL_GREEN = [
   "#0f2e13",
 ] as const;
 
+/**
+ * Divergerende skala for netto CO₂ (sluk vs. kilde). Teal for opptak (negativ)
+ * og oransje for utslipp (positiv) er et fargeblindvennlig par. Hver side går
+ * fra lys (nær null) til mørk (sterk), og skaleres uavhengig fordi verdiene er
+ * svært asymmetriske (store sluk, små kilder).
+ */
+export const DIVERGING_SINK = ["#dcefee", "#9ed8d1", "#54ab9f", "#1b6b62"] as const; // opptak (negativ)
+export const DIVERGING_SOURCE = ["#fbe4cc", "#f2b06a", "#dd7f34", "#a85210"] as const; // utslipp (positiv)
+export const DIVERGING_NEUTRAL = "#efeee9";
+
 /** Fast farge per hovedserie i avvirkning-vs-tilvekst-grafen. */
 export const SERIES_COLORS = {
   increment: "#009E73",

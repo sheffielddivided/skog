@@ -4,16 +4,38 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { scaleQuantize } from "d3-scale";
 import type { FeatureCollection, Feature } from "geojson";
-import { SEQUENTIAL_GREEN } from "@/lib/palette";
+import { SEQUENTIAL_GREEN, DIVERGING_SINK, DIVERGING_SOURCE, DIVERGING_NEUTRAL } from "@/lib/palette";
+import type { MapView } from "@/lib/regions";
 import { fmt } from "@/lib/format";
 
 type ValueMap = Record<string, { value: number; year: number }>;
+type Scale = "sequential" | "diverging";
+
+const MAX_H = 560;
+
+/**
+ * Rektangel-omriss (lon/lat) som en LineString – ikke Polygon. Et sfærisk
+ * polygon er tvetydig (vindingsretning kan tolkes som «hele kloden minus
+ * rektangelet»), noe som får fitWidth til å zoome ut til verdensskala. En
+ * LineString gir korrekt bounding-box uansett.
+ */
+function rectOutline([[w, s], [e, n]]: [[number, number], [number, number]]): Feature {
+  const pts: [number, number][] = [];
+  const step = 2;
+  for (let x = w; x <= e; x += step) pts.push([x, s]);
+  for (let y = s; y <= n; y += step) pts.push([e, y]);
+  for (let x = e; x >= w; x -= step) pts.push([x, n]);
+  for (let y = n; y >= s; y -= step) pts.push([w, y]);
+  pts.push([w, s]);
+  return { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: pts } };
+}
 
 /**
  * Interaktivt choropleth-verdenskart. Hand-rendret med d3-geo som SVG –
- * selvforsynt (ingen tile-tjenester), tastaturnavigerbart og fargeblindvennlig.
- * Klikk (eller Enter/Space) på et land åpner tidsserien. Projeksjonen tilpasses
- * automatisk til landene som vises (hele verden eller én verdensdel).
+ * selvforsynt, tastaturnavigerbart og fargeblindvennlig. Klikk (eller
+ * Enter/Space) på et land åpner tidsserien. `view` rammer inn til én verdensdel
+ * (fast rektangel + evt. rotasjon over datolinjen); `scale="diverging"` gir en
+ * sluk/kilde-fargeskala (teal/oransje) sentrert på null.
  */
 export function WorldMap({
   geo,
@@ -22,6 +44,9 @@ export function WorldMap({
   metricLabel,
   selected,
   onSelect,
+  view = null,
+  scale = "sequential",
+  decimals = 0,
 }: {
   geo: FeatureCollection;
   values: ValueMap;
@@ -29,6 +54,9 @@ export function WorldMap({
   metricLabel: string;
   selected?: string;
   onSelect: (iso3: string) => void;
+  view?: MapView | null;
+  scale?: Scale;
+  decimals?: number;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(720);
@@ -46,21 +74,61 @@ export function WorldMap({
     return () => ro.disconnect();
   }, []);
 
-  const { paths, height, color, thresholds, domain } = useMemo(() => {
+  const { paths, height, colorFn, legend } = useMemo(() => {
     const projection = geoNaturalEarth1();
-    projection.fitWidth(width, geo);
+    if (view?.rotate) projection.rotate(view.rotate);
+    const fitTarget: Feature | FeatureCollection = view?.bounds ? rectOutline(view.bounds) : geo;
+
+    projection.fitWidth(width, fitTarget);
     let path = geoPath(projection);
-    const b = path.bounds(geo); // [[x0,y0],[x1,y1]]
-    const h = Math.ceil(b[1][1] - b[0][1]);
-    // Venstre-/topp-juster slik at viewBox blir 0 0 width height.
-    const t = projection.translate();
-    projection.translate([t[0] - b[0][0], t[1] - b[0][1]]);
+    let b = path.bounds(fitTarget);
+    let h = Math.ceil(b[1][1] - b[0][1]);
+
+    if (h > MAX_H) {
+      // For høyt utsnitt: tilpass innenfor en boks og sentrer.
+      projection.fitExtent(
+        [
+          [0, 0],
+          [width, MAX_H],
+        ],
+        fitTarget,
+      );
+      path = geoPath(projection);
+      b = path.bounds(fitTarget);
+      h = MAX_H;
+      const t = projection.translate();
+      projection.translate([t[0] - b[0][0] + (width - (b[1][0] - b[0][0])) / 2, t[1] - b[0][1]]);
+    } else {
+      const t = projection.translate();
+      projection.translate([t[0] - b[0][0], t[1] - b[0][1]]);
+    }
     path = geoPath(projection);
 
     const vals = Object.values(values).map((v) => v.value);
     const min = vals.length ? Math.min(...vals) : 0;
     const max = vals.length ? Math.max(...vals) : 1;
-    const color = scaleQuantize<string>().domain([min, max]).range(SEQUENTIAL_GREEN as unknown as string[]);
+
+    let colorFn: (v: number) => string;
+    let legend:
+      | { kind: "sequential"; stops: number[] }
+      | { kind: "diverging"; negMax: number; posMax: number };
+
+    if (scale === "diverging") {
+      const negMax = Math.min(0, min);
+      const posMax = Math.max(0, max);
+      const sink = scaleQuantize<string>()
+        .domain([negMax, 0])
+        .range([...DIVERGING_SINK].reverse());
+      const source = scaleQuantize<string>()
+        .domain([0, posMax || 1])
+        .range([...DIVERGING_SOURCE]);
+      colorFn = (v) => (v < 0 ? sink(v) : v > 0 ? source(v) : DIVERGING_NEUTRAL);
+      legend = { kind: "diverging", negMax, posMax };
+    } else {
+      const seq = scaleQuantize<string>().domain([min, max]).range([...SEQUENTIAL_GREEN]);
+      colorFn = (v) => seq(v);
+      legend = { kind: "sequential", stops: [min, ...seq.thresholds(), max] };
+    }
 
     const paths = geo.features.map((f: Feature) => ({
       iso3: String(f.id),
@@ -72,10 +140,10 @@ export function WorldMap({
       centroid: path.centroid(f),
     }));
 
-    return { paths, height: h, color, thresholds: color.thresholds(), domain: [min, max] as [number, number] };
-  }, [geo, values, width]);
+    return { paths, height: h, colorFn, legend };
+  }, [geo, values, width, view, scale]);
 
-  const legendStops = [domain[0], ...thresholds, domain[1]];
+  const fmtVal = (v: number) => fmt(v, Math.abs(v) < 100 ? Math.max(decimals, 1) : decimals);
 
   return (
     <div>
@@ -96,14 +164,14 @@ export function WorldMap({
               <path
                 key={p.iso3}
                 d={p.d}
-                fill={hasData ? color(v.value) : "#eceae3"}
-                stroke={isSel ? "#c2410c" : "#ffffff"}
-                strokeWidth={isSel ? 1.6 : 0.4}
+                fill={hasData ? colorFn(v.value) : "#eceae3"}
+                stroke={isSel ? "#111827" : "#ffffff"}
+                strokeWidth={isSel ? 2 : 0.4}
                 tabIndex={hasData ? 0 : -1}
                 role={hasData ? "button" : undefined}
                 aria-label={
                   hasData
-                    ? `${p.name}: ${fmt(v.value, v.value < 100 ? 1 : 0)} ${unit} (${v.year})`
+                    ? `${p.name}: ${fmtVal(v.value)} ${unit} (${v.year})`
                     : `${p.name}: ingen data`
                 }
                 aria-pressed={hasData ? isSel : undefined}
@@ -132,15 +200,17 @@ export function WorldMap({
             x={hover.x}
             y={hover.y}
             name={paths.find((p) => p.iso3 === hover.iso3)?.name ?? hover.iso3}
-            value={values[hover.iso3].value}
-            year={values[hover.iso3].year}
-            unit={unit}
+            text={`${fmtVal(values[hover.iso3].value)} ${unit} · ${values[hover.iso3].year}`}
             width={width}
           />
         )}
       </div>
 
-      <MapLegend stops={legendStops} unit={unit} label={metricLabel} />
+      {legend.kind === "diverging" ? (
+        <DivergingLegend negMax={legend.negMax} posMax={legend.posMax} unit={unit} label={metricLabel} />
+      ) : (
+        <SequentialLegend stops={legend.stops} unit={unit} label={metricLabel} />
+      )}
     </div>
   );
 }
@@ -149,17 +219,13 @@ function Tooltip({
   x,
   y,
   name,
-  value,
-  year,
-  unit,
+  text,
   width,
 }: {
   x: number;
   y: number;
   name: string;
-  value: number;
-  year: number;
-  unit: string;
+  text: string;
   width: number;
 }) {
   const flip = x > width - 170;
@@ -173,14 +239,12 @@ function Tooltip({
       }}
     >
       <div className="font-semibold text-ink">{name}</div>
-      <div className="text-ink-muted">
-        {fmt(value, value < 100 ? 1 : 0)} {unit} · {year}
-      </div>
+      <div className="text-ink-muted">{text}</div>
     </div>
   );
 }
 
-function MapLegend({ stops, unit, label }: { stops: number[]; unit: string; label: string }) {
+function SequentialLegend({ stops, unit, label }: { stops: number[]; unit: string; label: string }) {
   return (
     <div className="mt-3 px-2">
       <div className="mb-1 text-xs font-medium text-ink-muted">
@@ -195,6 +259,37 @@ function MapLegend({ stops, unit, label }: { stops: number[]; unit: string; labe
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function DivergingLegend({
+  negMax,
+  posMax,
+  unit,
+  label,
+}: {
+  negMax: number;
+  posMax: number;
+  unit: string;
+  label: string;
+}) {
+  const swatches = [...[...DIVERGING_SINK].reverse(), DIVERGING_NEUTRAL, ...DIVERGING_SOURCE];
+  return (
+    <div className="mt-3 px-2">
+      <div className="mb-1 text-xs font-medium text-ink-muted">
+        {label} ({unit})
+      </div>
+      <div className="flex items-stretch">
+        {swatches.map((c, i) => (
+          <div key={i} className="h-3 flex-1" style={{ background: c }} />
+        ))}
+      </div>
+      <div className="mt-1 flex justify-between text-[10px] tabular-nums text-ink-faint">
+        <span>{fmt(Math.round(negMax))} (opptak)</span>
+        <span>0</span>
+        <span>+{fmt(Math.round(posMax))} (utslipp)</span>
       </div>
     </div>
   );

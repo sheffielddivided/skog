@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Interaktivt verdenskart over skog. Velg indikator – skogareal, volum, biomasse eller karbon – og klikk et land for å åpne tidsserien.",
 };
 
-const MAP_METRICS = ["forest_area", "standing_volume", "biomass_per_ha", "carbon_stock"] as const;
+const MAP_METRICS = ["forest_area", "forest_co2_net", "standing_volume", "biomass_per_ha", "carbon_stock"] as const;
 
 export default function VerdenPage() {
   const updated = fmtDate(getMeta().generatedAt);
@@ -27,7 +27,7 @@ export default function VerdenPage() {
       uncertaintyNo: m.uncertaintyNo,
       sourceName: src.name,
       sourceUrl: src.url,
-      decimals: 0,
+      decimals: id === "forest_co2_net" ? 1 : 0,
     };
   });
 

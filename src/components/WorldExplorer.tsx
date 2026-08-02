@@ -5,7 +5,7 @@ import type { FeatureCollection } from "geojson";
 import { WorldMap } from "@/components/charts/WorldMap";
 import { TimeSeriesFigure } from "@/components/charts/TimeSeriesFigure";
 import type { Region } from "@/lib/types";
-import { REGION_ORDER, regionLabel } from "@/lib/regions";
+import { REGION_ORDER, REGION_VIEWS, regionLabel } from "@/lib/regions";
 
 type Point = { year: number; value: number; quality?: string };
 
@@ -146,6 +146,9 @@ export function WorldExplorer({
               metricLabel={metric.nameNo}
               selected={effectiveCountry}
               onSelect={setCountry}
+              view={continent === "all" ? null : REGION_VIEWS[continent]}
+              scale={metricId === "forest_co2_net" ? "diverging" : "sequential"}
+              decimals={metric.decimals}
             />
           </div>
         </div>
