@@ -33,11 +33,16 @@ test("norsk tilvekst er større enn avvirkning i siste år", () => {
   assert.ok(incLast > harLast, "tilvekst > avvirkning");
 });
 
-test("alle serier har sorterte år og endelige, ikke-negative verdier", () => {
+test("alle serier har sorterte år og endelige verdier", () => {
+  // Netto CO₂-flux kan være negativ (karbonsluk); øvrige indikatorer ikke.
+  const mayBeNegative = new Set(["forest_co2_net"]);
   for (const s of dataset.series) {
     let prev = -Infinity;
     for (const p of s.points) {
-      assert.ok(Number.isFinite(p.value) && p.value >= 0, `${s.countryId}/${s.metricId} verdi`);
+      assert.ok(Number.isFinite(p.value), `${s.countryId}/${s.metricId} endelig verdi`);
+      if (!mayBeNegative.has(s.metricId)) {
+        assert.ok(p.value >= 0, `${s.countryId}/${s.metricId} ikke-negativ`);
+      }
       assert.ok(p.year > prev, `${s.countryId}/${s.metricId} år sortert`);
       prev = p.year;
     }

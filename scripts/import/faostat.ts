@@ -1,51 +1,46 @@
 /**
- * FAOSTAT-importør med autentisering.
+ * FAOSTAT-importør med autentisering (Bearer-token via Cognito).
  *
- * FAOSTAT krever nå Bearer-token. Innlogging skjer med brukernavn/passord som
- * KUN leses fra miljøvariabler (FAOSTAT_USERNAME / FAOSTAT_PASSWORD) – aldri fra
- * koden. I CI kommer de fra GitHub Actions Secrets; lokalt fra .env.local.
- * Uten legitimasjon hoppes FAOSTAT pent over (seed brukes).
+ * Legitimasjon leses KUN fra miljøvariabler (FAOSTAT_USERNAME/PASSWORD) – aldri
+ * fra koden. I CI kommer de fra GitHub Actions Secrets; lokalt fra .env.local.
+ * Verken passord eller token logges. Uten legitimasjon hoppes FAOSTAT over.
  *
- * SIKKERHET: verken passord eller token logges noen gang.
- *
- * Importøren er selvdiagnostiserende: første autentiserte CI-kjøring logger
- * hvilke skog-/karbon-domener og element-/item-koder som finnes, slik at de
- * eksakte kodene kan verifiseres mot loggen og settes i JOBS under.
+ * Verifisert mot CI: FAOSTAT har IKKE stående volum, biomasse per hektar eller
+ * karbonlager (det er FRA-data uten API). Domenet GF (Emissions from Forests)
+ * gir derimot netto CO₂-utslipp/-opptak fra skog globalt – som vi henter her.
+ *   GF, element 7233 (Net emissions/removals CO2), item 6751 (Forestland)
  */
 import { LiveSeries } from "./types";
 import { buildCountries } from "../lib/countries";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const worldCountries = require("world-countries") as {
+  cca3: string;
+  ccn3: string;
+  name: { common: string; official: string };
+  altSpellings: string[];
+}[];
 
 const BASE = "https://faostatservices.fao.org/api/v1";
 
-/** Henter Bearer-token. Returnerer null hvis legitimasjon mangler. */
 async function login(): Promise<string | null> {
   const username = process.env.FAOSTAT_USERNAME;
   const password = process.env.FAOSTAT_PASSWORD;
   if (!username || !password) {
-    console.log("  · FAOSTAT: ingen legitimasjon (FAOSTAT_USERNAME/PASSWORD) – hopper over.");
+    console.log("  · FAOSTAT: ingen legitimasjon – hopper over.");
     return null;
   }
-
   const res = await fetch(`${BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ username, password }),
   });
   if (!res.ok) throw new Error(`auth HTTP ${res.status}`);
-
   const json = (await res.json()) as Record<string, unknown>;
-  // FAOSTAT bruker AWS Cognito: token ligger i AuthenticationResult.AccessToken.
   const auth = json.AuthenticationResult as Record<string, unknown> | undefined;
-  const token =
-    (auth?.AccessToken as string) ??
-    (auth?.IdToken as string) ??
-    (json.access_token as string) ??
-    (json.token as string);
-  if (!token) {
-    // Logg kun NØKLENE (ikke verdier) for å finne riktig token-felt.
-    const keys = auth ? Object.keys(auth).join(", ") : Object.keys(json).join(", ");
-    throw new Error(`fant ikke token-felt (nøkler: ${keys})`);
-  }
+  const token = (auth?.AccessToken as string) ?? (auth?.IdToken as string);
+  if (!token) throw new Error(`fant ikke token-felt`);
   console.log("  · FAOSTAT: innlogget OK.");
   return token;
 }
@@ -58,54 +53,43 @@ async function authGet<T>(path: string, token: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-/** Lister koder for en dimensjon i et domene (prøver flere endepunkt-varianter). */
-async function listCodes(dim: string, domain: string, token: string) {
-  const paths = [
-    `en/codes/${dim}/${domain}?output_type=objects`,
-    `en/definitions/${dim}/${domain}?output_type=objects`,
-    `en/dimensions/${dim}/${domain}?output_type=objects`,
-  ];
-  for (const path of paths) {
-    try {
-      const j = await authGet<{ data?: Record<string, unknown>[] }>(path, token);
-      const rows = j.data ?? [];
-      if (rows.length) {
-        console.log(`     [${dim}@${domain}] ${rows.length} rader via ${path.split("?")[0]}. Felt: ${Object.keys(rows[0]).join(", ")}`);
-        for (const r of rows.slice(0, 40)) {
-          const code = r["Code"] ?? r["code"] ?? r["Element Code"] ?? r["Item Code"];
-          const label = r["Label"] ?? r["label"] ?? r["Element"] ?? r["Item"];
-          console.log(`        ${code} = ${label}`);
-        }
-        return;
-      }
-    } catch (e) {
-      console.log(`     [${dim}@${domain}] ${path.split("?")[0]} → ${(e as Error).message}`);
-    }
+/** Slår opp FAOSTAT-land (M49-kode eller navn) → ISO-3. */
+function makeAreaResolver() {
+  const byM49 = new Map<string, string>();
+  const byName = new Map<string, string>();
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
+  for (const c of worldCountries) {
+    byM49.set(String(Number(c.ccn3)), c.cca3);
+    byName.set(norm(c.name.common), c.cca3);
+    byName.set(norm(c.name.official), c.cca3);
+    for (const alt of c.altSpellings) byName.set(norm(alt), c.cca3);
   }
+  return (row: Record<string, unknown>): string | undefined => {
+    for (const key of ["Area Code (M49)", "Area Code (ISO3)", "Area Code", "AreaCode"]) {
+      const raw = row[key];
+      if (raw != null) {
+        const s = String(raw);
+        if (/^[A-Z]{3}$/.test(s) && byName.size) {
+          // Allerede ISO3?
+          if ([...byM49.values()].includes(s)) return s;
+        }
+        const m49 = s.replace(/\D/g, "");
+        if (m49 && byM49.has(String(Number(m49)))) return byM49.get(String(Number(m49)));
+      }
+    }
+    const name = row["Area"] ?? row["AreaName"];
+    if (typeof name === "string") return byName.get(norm(name));
+    return undefined;
+  };
 }
 
-/** Logger skog-/karbon-relaterte domener og kodene i GF-domenet (til verifisering). */
-async function discover(token: string) {
-  try {
-    const g = await authGet<{ data?: { domain_code?: string; domain_name?: string; code?: string; label?: string }[] }>(
-      "en/groupsanddomains?output_type=objects",
-      token,
-    );
-    const rows = g.data ?? [];
-    const hits = rows.filter((d) =>
-      /forest|carbon|land|emission|fra/i.test(`${d.domain_name ?? d.label ?? ""}`),
-    );
-    console.log(`  · FAOSTAT domener (skog/karbon/land): ${hits.length}`);
-    for (const d of hits.slice(0, 18)) {
-      console.log(`     - ${d.domain_code ?? d.code} = ${d.domain_name ?? d.label}`);
-    }
-    // GF = Emissions from Forests: list elementer og items for å finne karbon-koder.
-    console.log("  · FAOSTAT GF-koder:");
-    await listCodes("elements", "GF", token);
-    await listCodes("items", "GF", token);
-  } catch (err) {
-    console.warn(`  · FAOSTAT discovery feilet: ${(err as Error).message}`);
-  }
+/** Normaliserer en CO₂-verdi til millioner tonn ut fra enhetsteksten. */
+function toMtCO2(value: number, unit: string): number {
+  const u = (unit || "").toLowerCase();
+  if (u.includes("million") || u === "mt") return value;
+  if (u.includes("kiloton") || u === "kt" || u.includes("gigagram") || u === "gg") return value / 1000;
+  if (u.includes("ton") && !u.includes("kilo")) return value / 1_000_000;
+  return value / 1000; // FAOSTAT-utslipp er normalt kt/Gg
 }
 
 interface FaoJob {
@@ -114,20 +98,24 @@ interface FaoJob {
   item: string;
   metricId: string;
   label: string;
-  transform?: (v: number) => number;
+  kind: "co2";
 }
 
-/**
- * Konkrete uttrekk. Fylles ut med verifiserte koder fra discovery-loggen.
- * (Tomt inntil kodene er bekreftet mot en autentisert CI-kjøring.)
- */
-const JOBS: FaoJob[] = [];
+const JOBS: FaoJob[] = [
+  {
+    domain: "GF",
+    element: "7233",
+    item: "6751",
+    metricId: "forest_co2_net",
+    label: "netto CO₂ fra skog (GF)",
+    kind: "co2",
+  },
+];
 
 async function runJob(job: FaoJob, token: string, validIds: Set<string>): Promise<LiveSeries[]> {
-  const m49 = new Map(buildCountries().map((c) => [c.id, c])); // (reservert til evt. områdemapping)
-  void m49;
+  const resolve = makeAreaResolver();
   const data = await authGet<{ data?: Record<string, unknown>[] }>(
-    `en/data/${job.domain}?element=${job.element}&item=${job.item}&output_type=objects&show_codes=true`,
+    `en/data/${job.domain}?element=${job.element}&item=${job.item}&output_type=objects&show_codes=true&show_unit=true`,
     token,
   );
   const rows = data.data ?? [];
@@ -135,20 +123,25 @@ async function runJob(job: FaoJob, token: string, validIds: Set<string>): Promis
   console.log(`  · FAOSTAT ${job.label}: ${rows.length} rader. Felt: ${Object.keys(rows[0]).join(", ")}`);
 
   const byCountry = new Map<string, LiveSeries>();
+  let sampleLogged = false;
   for (const r of rows) {
-    const iso3 = String(r["Area Code (ISO3)"] ?? r["ISO3"] ?? "");
+    const iso3 = resolve(r);
     const year = Number(r["Year"]);
-    const value = Number(r["Value"]);
-    if (!validIds.has(iso3) || !Number.isFinite(year) || !Number.isFinite(value)) continue;
-    const key = `${iso3}__${job.metricId}`;
+    const raw = Number(r["Value"]);
+    const unit = String(r["Unit"] ?? "");
+    if (!iso3 || !validIds.has(iso3) || !Number.isFinite(year) || !Number.isFinite(raw)) continue;
+    const value = Math.round(toMtCO2(raw, unit) * 100) / 100;
+    if (!sampleLogged) {
+      console.log(`     eksempel: ${iso3} ${year} rå=${raw} ${unit} → ${value} mill. t CO₂`);
+      sampleLogged = true;
+    }
+    const key = iso3;
     if (!byCountry.has(key)) byCountry.set(key, { countryId: iso3, metricId: job.metricId, points: [] });
-    byCountry.get(key)!.points.push({
-      year,
-      value: job.transform ? Math.round(job.transform(value) * 100) / 100 : value,
-      quality: "measured",
-    });
+    byCountry.get(key)!.points.push({ year, value, quality: "measured" });
   }
-  const out = [...byCountry.values()].map((s) => ({ ...s, points: s.points.sort((a, b) => a.year - b.year) }));
+  const out = [...byCountry.values()]
+    .map((s) => ({ ...s, points: s.points.sort((a, b) => a.year - b.year) }))
+    .filter((s) => s.points.length >= 2);
   console.log(`  ✓ FAOSTAT ${job.label}: ${out.length} land`);
   return out;
 }
@@ -157,13 +150,6 @@ export async function importFaostat(): Promise<LiveSeries[]> {
   try {
     const token = await login();
     if (!token) return [];
-
-    await discover(token); // logger tilgjengelige koder for verifisering
-
-    if (JOBS.length === 0) {
-      console.log("  · FAOSTAT: ingen uttrekk konfigurert ennå (venter på verifiserte koder).");
-      return [];
-    }
     const validIds = new Set(buildCountries().map((c) => c.id));
     const out: LiveSeries[] = [];
     for (const job of JOBS) {

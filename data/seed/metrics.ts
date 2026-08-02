@@ -74,6 +74,18 @@ export const metrics: Metric[] = [
     sourceId: "worldbank",
   },
   {
+    id: "forest_co2_net",
+    name: "Net forest CO₂ emissions/removals",
+    nameNo: "Netto CO₂ fra skog",
+    unit: "mill. t CO₂/år",
+    definitionNo:
+      "Netto utslipp/opptak av CO₂ på skogareal (FAOSTAT). Negative verdier betyr netto opptak – skogen er et karbonsluk; positive verdier betyr netto utslipp.",
+    uncertaintyNo:
+      "Modellert fra arealendring og biomasse; metodikk og datagrunnlag varierer mellom land.",
+    direction: "down-good",
+    sourceId: "faostat",
+  },
+  {
     id: "co2_atmospheric",
     name: "Atmospheric CO₂",
     nameNo: "Atmosfærisk CO₂",

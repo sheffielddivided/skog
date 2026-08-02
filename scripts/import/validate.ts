@@ -10,10 +10,12 @@ export function validate(series: LiveSeries[]): { ok: LiveSeries[]; warnings: st
   const ok: LiveSeries[] = [];
 
   for (const s of series) {
+    // Netto CO₂-flux kan være negativ (karbonsluk); andre indikatorer ikke.
+    const allowNegative = s.metricId === "forest_co2_net";
     const points = s.points
       .filter((p) => Number.isFinite(p.year) && Number.isFinite(p.value))
       .filter((p) => p.year >= 1800 && p.year <= new Date().getFullYear() + 1)
-      .filter((p) => p.value >= 0)
+      .filter((p) => allowNegative || p.value >= 0)
       .sort((a, b) => a.year - b.year);
 
     if (points.length < 2) {

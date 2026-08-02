@@ -10,7 +10,13 @@ export const metadata: Metadata = {
     "Sammenlign skogutviklingen i flere europeiske land i samme graf – volum, areal, biomasse og karbon.",
 };
 
-const COMPARE_METRICS = ["standing_volume", "forest_area", "biomass_per_ha", "carbon_stock"] as const;
+const COMPARE_METRICS = [
+  "forest_area",
+  "forest_co2_net",
+  "standing_volume",
+  "biomass_per_ha",
+  "carbon_stock",
+] as const;
 
 export default function SammenlikningPage() {
   const updated = fmtDate(getMeta().generatedAt);
