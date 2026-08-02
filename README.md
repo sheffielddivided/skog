@@ -116,8 +116,9 @@ DataSource  { id, name, url, retrieved, license }
 | Kilde                                  | Bruk                                       | Lisens              |
 | -------------------------------------- | ------------------------------------------ | ------------------- |
 | **SSB / NIBIO** (Landsskogtakseringen) | Norge: volum, tilvekst, avvirkning, karbon | CC BY 4.0           |
-| **FAO FRA 2020**                       | Europa: areal, volum, biomasse, karbon     | CC BY-NC-SA 3.0 IGO |
-| **Global Carbon Project / NOAA**       | Atmosfærisk CO₂                            | CC BY 4.0           |
+| **Verdensbanken / FAO** (AG.LND.FRST.K2) | **Globalt skogareal** (alle land, årlig)  | CC BY 4.0           |
+| **FAO FRA 2020**                       | Europa: volum, biomasse, karbon            | CC BY-NC-SA 3.0 IGO |
+| **NOAA / Global Carbon Project**       | Atmosfærisk CO₂ (globalt, årlig)          | CC BY 4.0           |
 | **Copernicus** (valgfritt)             | Europeisk temperatur                       | Copernicus-lisens   |
 
 ### Om tallene i dette repoet
@@ -130,12 +131,24 @@ femårssykluser, og FRA rapporterer for referanseår (1990/2000/2010/2020) –
 Importtjenesten (`scripts/import/`) henter de ekte, ferske seriene når den
 kjører i et miljø med utgående nett (Vercel/CI) og overstyrer seed-laget.
 
-**Global dekning:** Landregisteret dekker alle land (koder, verdensdel og norske
-navn hentes offline fra `world-countries` + `i18n-iso-countries`). I seed-laget
-er **skogareal** lagt inn for verdens største skogland på alle kontinenter
-(`data/seed/world.ts`); de øvrige indikatorene (volum, biomasse, karbon) er
-foreløpig seedet for Europa og fylles globalt av den nattlige FAO-importen, som
-allerede nøkler på ISO-3 uten landfilter. Land uten data vises grå på kartet.
+**Global dekning (verifisert mot CI):** Landregisteret dekker alle land (koder,
+verdensdel og norske navn hentes offline fra `world-countries` +
+`i18n-iso-countries`).
+
+- **Skogareal** hentes automatisk for **alle land** (213 land, årlig 1990–2023)
+  fra Verdensbankens åpne API (`AG.LND.FRST.K2`, FAO-avledet) av den nattlige
+  importtjenesten. Seed-laget (`data/seed/world.ts`) gir samme indikator offline.
+- **Atmosfærisk CO₂** hentes globalt fra NOAA/GCP (47 år).
+- **Volum, biomasse per hektar og karbon** finnes bare i FAO FRA, som ikke har et
+  åpent API (FAOSTATs API krever nå autentisering – bekreftet HTTP 401 i CI). Disse
+  er derfor seedet for Norge + Europa og kan utvides globalt ved å koble på en
+  autentisert FRA/FAOSTAT-kilde i `scripts/import/`.
+
+Land uten data for en indikator vises grå på kartet.
+
+> Importtjenesten er verifisert ved å kjøre GitHub Actions-jobben og lese
+> loggene: Verdensbanken (213 land) og NOAA (CO₂) hentes reelt; SSB- og
+> FAOSTAT-endepunktene svarer 400/401 og faller pent tilbake til seed.
 
 ## Internt API
 

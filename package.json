@@ -14,7 +14,7 @@
     "data:geo": "tsx scripts/build-geo.ts",
     "data:import": "tsx scripts/import/index.ts",
     "data:refresh": "tsx scripts/import/index.ts && tsx scripts/build-cache.ts",
-    "prebuild": "tsx scripts/build-cache.ts && tsx scripts/build-geo.ts"
+    "prebuild": "node -e \"process.exit(require('fs').existsSync('data/cache/dataset.json')&&require('fs').existsSync('data/cache/world.geo.json')?0:1)\" || (npm run data:build && npm run data:geo)"
   },
   "dependencies": {
     "@observablehq/plot": "^0.6.16",
