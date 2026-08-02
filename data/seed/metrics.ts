@@ -67,11 +67,11 @@ export const metrics: Metric[] = [
     nameNo: "Skogareal",
     unit: "1000 ha",
     definitionNo:
-      "Areal klassifisert som skog etter FAO-definisjonen (>0,5 ha, >10 % kronedekning, trær >5 m).",
+      "Areal klassifisert som skog etter FAO-definisjonen (>0,5 ha, >10 % kronedekning, trær >5 m). Globale årsdata hentes fra Verdensbanken (FAO-avledet).",
     uncertaintyNo:
       "Landdefinisjoner og kartleggingsmetoder varierer noe mellom land og år.",
     direction: "up-good",
-    sourceId: "fao-fra",
+    sourceId: "worldbank",
   },
   {
     id: "co2_atmospheric",

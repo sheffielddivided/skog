@@ -24,6 +24,14 @@
     "license": "CC BY-NC-SA 3.0 IGO"
   },
   {
+    "id": "worldbank",
+    "name": "Verdensbanken – Forest area (AG.LND.FRST.K2, FAO-avledet)",
+    "shortName": "Verdensbanken / FAO",
+    "url": "https://data.worldbank.org/indicator/AG.LND.FRST.K2",
+    "retrieved": "2026-08-02",
+    "license": "CC BY 4.0"
+  },
+  {
     "id": "gcp",
     "name": "Global Carbon Project / NOAA Global Monitoring Laboratory",
     "shortName": "Global Carbon Project",
