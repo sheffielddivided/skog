@@ -1,6 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-02T18:46:43.986Z",
+    "generatedAt": "2026-08-02T18:50:23.905Z",
+    "contentHash": "a553d5d414a2c6841a2f9b7cbfd80f6dc609c4c0",
     "method": "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
     "seriesCount": 110,
     "observationCount": 3718

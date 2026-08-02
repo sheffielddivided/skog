@@ -10,6 +10,7 @@
  */
 import { mkdir, writeFile, rm, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 
 import { sources } from "../data/seed/sources";
 import { metrics } from "../data/seed/metrics";
@@ -101,8 +102,26 @@ async function main() {
     count: s.points.length,
   }));
 
+  // Innholdshash gjør bufferet deterministisk: `generatedAt` bumpes bare når
+  // selve dataene endrer seg, ikke ved hver kjøring. Dermed unngår vi at den
+  // nattlige cron-jobben committer identiske filer med bare ny tidsstempel.
+  const contentHash = createHash("sha1")
+    .update(JSON.stringify({ sources, countries, metrics, series, index }))
+    .digest("hex");
+
+  let generatedAt = new Date().toISOString();
+  try {
+    const prev = JSON.parse(await readFile(join(CACHE_DIR, "dataset.json"), "utf8"));
+    if (prev?.meta?.contentHash === contentHash && prev?.meta?.generatedAt) {
+      generatedAt = prev.meta.generatedAt; // uendret data → behold forrige dato
+    }
+  } catch {
+    /* ingen tidligere buffer – bruk nåtid */
+  }
+
   const meta = {
-    generatedAt: new Date().toISOString(),
+    generatedAt,
+    contentHash,
     method:
       "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
     seriesCount: series.length,
