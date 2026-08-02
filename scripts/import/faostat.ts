@@ -58,7 +58,33 @@ async function authGet<T>(path: string, token: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-/** Logger skog-/karbon-relaterte domener og deres koder (til verifisering). */
+/** Lister koder for en dimensjon i et domene (prøver flere endepunkt-varianter). */
+async function listCodes(dim: string, domain: string, token: string) {
+  const paths = [
+    `en/codes/${dim}/${domain}?output_type=objects`,
+    `en/definitions/${dim}/${domain}?output_type=objects`,
+    `en/dimensions/${dim}/${domain}?output_type=objects`,
+  ];
+  for (const path of paths) {
+    try {
+      const j = await authGet<{ data?: Record<string, unknown>[] }>(path, token);
+      const rows = j.data ?? [];
+      if (rows.length) {
+        console.log(`     [${dim}@${domain}] ${rows.length} rader via ${path.split("?")[0]}. Felt: ${Object.keys(rows[0]).join(", ")}`);
+        for (const r of rows.slice(0, 40)) {
+          const code = r["Code"] ?? r["code"] ?? r["Element Code"] ?? r["Item Code"];
+          const label = r["Label"] ?? r["label"] ?? r["Element"] ?? r["Item"];
+          console.log(`        ${code} = ${label}`);
+        }
+        return;
+      }
+    } catch (e) {
+      console.log(`     [${dim}@${domain}] ${path.split("?")[0]} → ${(e as Error).message}`);
+    }
+  }
+}
+
+/** Logger skog-/karbon-relaterte domener og kodene i GF-domenet (til verifisering). */
 async function discover(token: string) {
   try {
     const g = await authGet<{ data?: { domain_code?: string; domain_name?: string; code?: string; label?: string }[] }>(
@@ -70,9 +96,13 @@ async function discover(token: string) {
       /forest|carbon|land|emission|fra/i.test(`${d.domain_name ?? d.label ?? ""}`),
     );
     console.log(`  · FAOSTAT domener (skog/karbon/land): ${hits.length}`);
-    for (const d of hits.slice(0, 15)) {
+    for (const d of hits.slice(0, 18)) {
       console.log(`     - ${d.domain_code ?? d.code} = ${d.domain_name ?? d.label}`);
     }
+    // GF = Emissions from Forests: list elementer og items for å finne karbon-koder.
+    console.log("  · FAOSTAT GF-koder:");
+    await listCodes("elements", "GF", token);
+    await listCodes("items", "GF", token);
   } catch (err) {
     console.warn(`  · FAOSTAT discovery feilet: ${(err as Error).message}`);
   }
