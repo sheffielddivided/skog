@@ -1,10 +1,10 @@
 name: Oppdater skogdata
 
-# Nattlig import: henter ferske tall fra SSB/FAO/GCP, bygger hurtigbufferet
+# Månedlig import: henter ferske tall fra SSB/FAO/GCP, bygger hurtigbufferet
 # på nytt og committer endringer. Push trigger automatisk deploy på Vercel.
 on:
   schedule:
-    - cron: "0 3 * * *" # hver natt 03:00 UTC
+    - cron: "0 3 1 * *" # den 1. i hver måned, 03:00 UTC
   workflow_dispatch: {} # kan også kjøres manuelt
 
 permissions:
