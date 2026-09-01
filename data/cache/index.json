@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-08-02T21:04:26.079Z",
-    "contentHash": "039a89d754577e7d36fe1a57d7e9004d9f9f9b61",
+    "generatedAt": "2026-09-01T08:01:30.896Z",
+    "contentHash": "e1d204b36007a6a798ba03f622068f09a5b9e95e",
     "method": "Seed-kuraterte publiserte tall fra SSB/NIBIO (Landsskogtakseringen), FAO FRA 2020 og Global Carbon Project. Årlige verdier mellom takst-/rapporteringsår er lineært interpolert.",
     "seriesCount": 1110,
-    "observationCount": 39062
+    "observationCount": 39080
   },
   "index": [
     {
@@ -6163,9 +6163,9 @@
     {
       "countryId": "GLB",
       "metricId": "co2_atmospheric",
-      "minYear": 1979,
-      "maxYear": 2025,
-      "count": 47
+      "minYear": 1960,
+      "maxYear": 2024,
+      "count": 65
     },
     {
       "countryId": "AFG",
